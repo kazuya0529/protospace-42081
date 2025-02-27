@@ -19,8 +19,8 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install -y libpq-dev build-essential default-libmysqlclient-dev git libvips pkg-config --no-install-recommends
-    
+    apt-get install -y libpq libpq-dev build-essential default-libmysqlclient-dev git libvips pkg-config --no-install-recommends
+
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle install && \
